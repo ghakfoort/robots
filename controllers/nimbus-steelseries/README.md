@@ -33,3 +33,27 @@ udevadm control --reload-rules && udevadm trigger
 
 Reconnect the Controller and the eventX device will be accessible via the static device name /dev/nimbus
 
+E-codes
+-------
+
+| Button | Ecode | Type | Value-min | Value-max |
+| ------ | ----- | ---- | --------- | --------- |
+| Menu   | 172   | digital | NA | NA |
+| A      | 304   | digital | NA | NA |
+| B      | 305   | digital | NA | NA |
+| X      | 306   | digital | NA | NA |
+| Y      | 307   | digital | NA | NA |
+| L1	 | 308   | digital | NA | NA |
+| R1	 | 309   | digital | NA | NA |
+| L2	 | 310   | analog  | -127 | 127 |
+| R2	 | 311	 | analog  | -127 | 127 |
+| Joystick-left ( Left/Right ) | 00 | analog | -127 | 127 |
+| Joystick-left ( Up/Down) | 01 | analog | -127 | 127 |
+| Joystick-left ( Press ) | 04 | digital | NA | NA |
+| Joystick-right (Left/Right ) | 02 | analog | -127 | 127 |
+| Joystick-right (Up/Down ) | 03 | analog | -127 | 127 |
+| Joystick-right ( Press ) | 05 | digital | NA | NA |
+
+Unfortunately i was not yet able to identify the corresponding ecodes of the 4 buttons of the directional pad.
+ 
+
