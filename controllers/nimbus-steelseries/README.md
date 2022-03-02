@@ -31,5 +31,5 @@ Restart your Pi or run the following command to enable the udev rule:
 
 udevadm control --reload-rules && udevadm trigger
 
-Reconnect the Controller and the eventX device will be accessible from the static name /dev/nimbus
+Reconnect the Controller and the eventX device will be accessible via the static device name /dev/nimbus
 
