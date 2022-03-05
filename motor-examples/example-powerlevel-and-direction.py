@@ -1,9 +1,26 @@
+from evdev import InputDevice, categorize, ecodes
+from buildhat import Motor
 
-#vposjsleft = Vertical POSition JoyStick left
-def calcSpeed(vposjsleft):
-    if vposjsleft <= 127 and vposjsleft >= -127:
-        print(round((vposjsleft/127)*100))
-    else:
-        print("illegal or unknown speed")
+motora = Motor('A')
+gamepad = InputDevice('/dev/nimbus')
+ 
+for event in gamepad.read_loop():
+    keyevent = categorize(event)
+    #print(event)
 
-calcSpeed(-100)
+
+    if event.code == 1 and event.value != 0:
+        print("Left joystick forward/backwards pressed")
+        print("Speed:")
+        print(event.value)
+
+        if event.value == 0:
+            motora.stop()
+            
+        if event.value <= 127 and event.value >= -127:
+            print(round((event.value/127)*100))
+            motora.start(speed=(round((event.value/127)*100)))
+            continue
+            
+        else:
+            print("illegal or unknown speed")
